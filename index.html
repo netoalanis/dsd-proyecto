@@ -1,0 +1,62 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="web.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <title>DSD Project</title>
+</head>
+<body>
+    <div class="navbar navbar-default navbar-static-top">
+        <div class="container">
+             <div class="navbar-collapse navbar-collapse-1 collapse" aria-expanded="true">
+                <h2>Cetys Diseño de Sistemas Distribuidos - Equipo 2 - Proyecto Final</h2>
+                <div class="navbar-form navbar-right">
+                    <button class="btn btn-primary" type="submit" aria-label="Left Align" >
+                        <span class="glyphicon glyphicon-pencil" aria-hidden="true"> </span> Refresh
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div> 
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <div id="panel"></div>
+              </div>
+        </div>
+    </div>
+</body>
+
+<script>
+    $(document).ready(function(){
+        $("button").click(function(){
+            //var apiurl = 'http://localhost:3000/search';
+            var apiurl = "http://" + $(location).attr('host') + "/search";
+            //alert(apiurl);
+            var proxy = 'https://cors-anywhere.herokuapp.com/';
+            var geturl =  proxy + apiurl ;
+            $.get(apiurl,{},function(data, status){
+                //console.log(data);
+                //alert("Data: " + data + "\nStatus: " + status);
+                for(i=0;i<data.twtret.length;i++){
+                    tw = data.twtret[i]
+                    document.getElementById("panel").innerHTML += "<div class='panel panel-info'><div class='panel-body'><div class='media'><img class='media-object img-rounded' src=" + tw.rPIC + 
+                        "></a><div class='media-body'><h4 class='media-heading'>" + tw.rUSR + "</h4><p>" + tw.rTXT + "</p></div></div></div></div>"
+                }
+            });
+        });
+    });
+</script>
+</html>
+    
+    
