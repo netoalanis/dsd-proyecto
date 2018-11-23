@@ -6,6 +6,7 @@
 
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" type="text/css" href="web.css">
     <!-- jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -14,29 +15,52 @@
 
     <title>DSD Project</title>
 </head>
-<body>
-    <div class="navbar navbar-default navbar-static-top">
-        <div class="container">
-             <div class="navbar-collapse navbar-collapse-1 collapse" aria-expanded="true">
-                <h2>Cetys Diseño de Sistemas Distribuidos - Equipo 2 - Proyecto Final</h2>
-                <div class="navbar-form navbar-right">
-                    <button class="btn btn-primary" type="submit" aria-label="Left Align" >
-                        <span class="glyphicon glyphicon-pencil" aria-hidden="true"> </span> Refresh
-                    </button>
-                </div>
+<body style="height:100%;background-position:center;background-repeat:no-repeat;background-size:cover;background-image:url('http://www.cetys.mx/noticias/wp-content/uploads/2017/05/ceid_cetys.jpg');">
+        <nav class="navbar navbar-inverse">
+          <div class="container-fluid">
+            <div style="color:#f1f1f1;font-family: Arial, Helvetica, sans-serif;font-size: 20px;">
+              <p>Diseño de Sistemas Distribuidos - Proyecto Final</p>
             </div>
-        </div>
-    </div> 
-    
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-6">
-                <div id="panel"></div>
-              </div>
+          </div>
+        </nav>
+
+<div class="contenido">
+        <div class="container-fluid text-left">    
+          <div class="row content">
+            <div class="content">
+            <div class="col-sm-5">
+                    <div>
+                        <button class="btn btn-primary btn-twitter" type="submit" aria-label="Left Align" >
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"> </span> Get Tweets
+                        </button>
+                    </div>
+            <div style="max-height: 450px;overflow: auto;">
+                    <div id="panel"></div>
+            </div>
+            </div>
+            <div class="col-sm-2"></div>
+            <div class="col-sm-4">
+            <div class="info" style="background:#7f7f7f;background:rgba(255,255,255,0.5);width:200px;">
+              <h2 class="titulo">Equipo #2</h1>
+              <h2 class="titulo">Integrantes</h2>
+              <ul class="lista">
+                  <li class="subtitulo">Ernesto Alanis</li>
+                  <li class="subtitulo">Enrique Morales</li>
+                  <li class="subtitulo">Israel Magaña</li>
+                  <li class="subtitulo">Ricardo Cabrera</li>
+                  <li class="subtitulo">Daniel Quintero</li>
+              </ul>
+            </div>
+            </div>
+            </div>
+          </div>
         </div>
     </div>
-</body>
-
+        <footer class="container-fluid text-center">
+          <p>24 de Noviembre de 2018</p>
+        </footer>
+        
+        </body>
 <script>
     $(document).ready(function(){
         $("button").click(function(){
@@ -50,7 +74,7 @@
                 //alert("Data: " + data + "\nStatus: " + status);
                 for(i=0;i<data.twtret.length;i++){
                     tw = data.twtret[i]
-                    document.getElementById("panel").innerHTML += "<div class='panel panel-info'><div class='panel-body'><div class='media'><img class='media-object img-rounded' src=" + tw.rPIC + 
+                    document.getElementById("panel").innerHTML += "<div class='panel panel-primary'style='background:#7f7f7f;background:rgba(255,255,255,0.5);><div class='panel'><div class='media'><img class='media-object img-rounded' src=" + tw.rPIC + 
                         "></a><div class='media-body'><h4 class='media-heading'>" + tw.rUSR + "</h4><p>" + tw.rTXT + "</p></div></div></div></div>"
                 }
             });
@@ -58,5 +82,3 @@
     });
 </script>
 </html>
-    
-    
